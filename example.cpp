@@ -41,7 +41,7 @@ int main() {
     some_bad_str += std::string(PaddingSize, 'x');
     beg = some_bad_str.begin();
     // iterate until input is exhausted (since "no data" and "wrong data" both return empty)
-    while ( std::distance(beg, some_bad_str.end()) > PaddingSize ) {
+    while ( beg != (some_bad_str.end() - PaddingSize) ) {
         auto opt_str = lex(beg, some_bad_str.end());
         if (opt_str) {
             std::cout << *opt_str << "\n";
@@ -64,7 +64,7 @@ int main() {
     // and the version with errors
     auto prng_errs = padded_range_t(some_bad_toks, some_bad_toks + std::strlen(some_bad_toks));
     prbeg = std::begin(prng_errs);
-    while ( std::distance(prbeg, std::end(prng_errs)) > PaddingSize ) {
+    while ( prbeg != prng_errs.end_input() ) {
         auto opt_str = lex(prbeg, std::end(prng_errs));
         if (opt_str) {
             std::cout << *opt_str << "\n";
@@ -91,7 +91,7 @@ int main() {
         some_bad_list(some_bad_toks, some_bad_toks + std::strlen(some_bad_toks));
     auto plng_errs = padded_list_t(some_bad_list.begin(), some_bad_list.end());
     plbeg = std::begin(plng_errs);
-    while ( std::distance(plbeg, std::end(plng_errs)) > PaddingSize ) {
+    while ( plbeg != plng_errs.end_input() ) {
         auto opt_str = lex(plbeg, std::end(plng_errs));
         if (opt_str) {
             std::cout << *opt_str << "\n";

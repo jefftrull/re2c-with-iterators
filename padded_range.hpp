@@ -149,7 +149,7 @@ struct padded_range
         return iterator(this, src_beg_, 0);
     }
 
-    iterator pad_begin() const {
+    iterator end_input() const {
         return iterator(this, src_end_, 0);
     }
 
