@@ -29,3 +29,7 @@ target_include_directories( ex PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ) # to pick up
 target_sources( ex PRIVATE lexer.hpp )
 target_link_libraries( ex Boost::boost )
 set_property( TARGET ex PROPERTY CXX_STANDARD 17 )
+
+enable_testing()
+
+add_subdirectory( test )
