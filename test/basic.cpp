@@ -21,7 +21,7 @@
 
 namespace {
 
-TEST( BasicUsageTest, CharString ) {
+TEST( BasicUsageTest, IntSequence ) {
     // basic usage
     int test_data[] = {9,8,7,6};
     padded_range<int const *, 42, 10>
